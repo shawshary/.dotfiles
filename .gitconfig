@@ -1,0 +1,9 @@
+[https]
+	proxy = http://192.168.1.107:8887
+[http]
+	proxy = http://192.168.1.107:8887
+[init]
+	defaultBranch = main
+[user]
+	email = xinyuloveswork@163.com
+	name = shawshary
