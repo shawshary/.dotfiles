@@ -1,0 +1,21 @@
+[submodule ".vim/pack/plugins-package/opt/coc.nvim"]
+	path = .vim/pack/plugins-package/opt/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule ".vim/pack/plugins-package/opt/iceberg.vim"]
+	path = .vim/pack/plugins-package/opt/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim.git
+[submodule ".vim/pack/plugins-package/opt/nerdtree"]
+	path = .vim/pack/plugins-package/opt/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/pack/plugins-package/opt/ultisnips"]
+	path = .vim/pack/plugins-package/opt/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/pack/plugins-package/opt/vim-snippets"]
+	path = .vim/pack/plugins-package/opt/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule ".vim/pack/plugins-package/opt/vim-airline"]
+	path = .vim/pack/plugins-package/opt/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule ".vim/pack/plugins-package/opt/vim-table-mode"]
+	path = .vim/pack/plugins-package/opt/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode.git
