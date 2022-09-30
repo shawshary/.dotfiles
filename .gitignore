@@ -1,2 +1,11 @@
 
 .config/lazygit/state.yml
+.config/dconf
+.config/evolution/sources
+.config/gtk-3.0
+.config/ibus/bus
+.config/nautilus
+.config/pulse
+.config/memos.json
+.config/user-dirs.dirs
+.config/user-dirs.locale
