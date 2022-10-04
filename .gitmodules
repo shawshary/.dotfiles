@@ -19,3 +19,6 @@
 [submodule ".vim/pack/plugins-package/opt/vim-table-mode"]
 	path = .vim/pack/plugins-package/opt/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git

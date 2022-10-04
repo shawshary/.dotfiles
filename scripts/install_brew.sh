@@ -1,5 +1,5 @@
-# Install the brew.
 #! /usr/bin/env bash
+# Install the linuxbrew.
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 

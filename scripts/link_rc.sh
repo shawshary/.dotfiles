@@ -16,6 +16,9 @@ CONFIG_FILE_PATH=${PWD}/.. # Path of original dotfiles.
 [ -f ${CONFIG_FILE_PATH}/.bashrc ] \
     && ln -fsv ${CONFIG_FILE_PATH}/.bashrc ${HOME}/.bashrc
 
+[ -f ${CONFIG_FILE_PATH}/.zshrc ] \
+    && ln -fsv ${CONFIG_FILE_PATH}/.zshrc ${HOME}/.zshrc
+
 [ -d ${CONFIG_FILE_PATH}/.config/ ] \
     && ln -fsv ${CONFIG_FILE_PATH}/.config/* ${HOME}/.config/
 
