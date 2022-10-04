@@ -124,7 +124,7 @@ fi
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/include
 
 # Set Env Variables
-export EDITOR=vim
+export EDITOR=nvim
 export TERM=xterm-256color
 
 # Select the beijing timezone.
@@ -132,4 +132,5 @@ export TZ=Asia/Shanghai
 
 # Change the download source of brew bottles.
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE='https://mirrors.ustc.edu.cn/homebrew-core.git'

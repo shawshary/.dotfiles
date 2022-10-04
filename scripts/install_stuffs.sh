@@ -9,9 +9,9 @@
 
 brew install linux-headers@5.15
 
-brew install -s python@3.10 # need to remove the '--with-lto' flag.
+brew install python@3.10 # need to remove the '--with-lto' flag.
 
-brew install -s vim # need to configure 'with-features=huge, --with-x'
+#brew install -s vim # need to configure 'with-features=huge, --with-x'
 
 brew install nvim
 
@@ -27,7 +27,7 @@ brew install tree
 
 brew install node
 
-if [[ -z ${INSTALL_BIG_SIZE} ]]; then
+if [[ ! -z ${INSTALL_BIG_SIZE} ]]; then
     brew install texlive
 fi
 

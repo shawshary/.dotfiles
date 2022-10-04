@@ -17,7 +17,7 @@ CONFIG_FILE_PATH=${PWD}/.. # Path of original dotfiles.
     && ln -fsv ${CONFIG_FILE_PATH}/.bashrc ${HOME}/.bashrc
 
 [ -d ${CONFIG_FILE_PATH}/.config/ ] \
-    && ln -fsv ${CONFIG_FILE_PATH}/.config ${HOME}/
+    && ln -fsv ${CONFIG_FILE_PATH}/.config/* ${HOME}/.config/
 
 [ -f ${CONFIG_FILE_PATH}/.tmux.conf ] \
     && ln -fsv ${CONFIG_FILE_PATH}/.tmux.conf ${HOME}/.tmux.conf
