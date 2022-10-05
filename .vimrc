@@ -120,6 +120,8 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" enable fzf.
+set runtimepath+=/home/linuxbrew/.linuxbrew/opt/fzf
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -134,9 +136,6 @@ let maplocalleader=" "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto Commands:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 " set indent info for different file types.
 autocmd Filetype cpp 
@@ -159,6 +158,10 @@ au BufReadPost *
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Defined Commands:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 
 
