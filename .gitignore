@@ -9,3 +9,4 @@
 .config/memos.json
 .config/user-dirs.dirs
 .config/user-dirs.locale
+.vim/swapfiles
