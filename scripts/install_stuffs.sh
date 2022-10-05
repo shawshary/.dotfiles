@@ -27,6 +27,10 @@ brew install tree
 
 brew install node
 
+brew install ranger
+
+brew install fzf
+
 if [[ ! -z ${INSTALL_BIG_SIZE} ]]; then
     brew install texlive
 fi
