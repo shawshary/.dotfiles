@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,6 +109,13 @@ export HOMEBREW_CORE_GIT_REMOTE='https://mirrors.ustc.edu.cn/homebrew-core.git'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# User-defined aliases.
 [ -f ${HOME}/.dotfiles/scripts/shell_alias.sh ] && \
     source ${HOME}/.dotfiles/scripts/shell_alias.sh
+
+#####################
+#  keybind setting  #
+#####################
+bindkey '^y' autosuggest-accept 
 
