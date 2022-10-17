@@ -31,18 +31,21 @@ function check_prerequsites() {
 }
 
 function change_login_shell() {
-  echo "Make zsh the valid login shell.";
-  echo "$(which zsh)" >> /etc/shells;
-  [[ $? == 0 ]] && echo "Make zsh the valid login shell done.";
+  #echo "Make zsh the valid login shell.";
+  #echo "$(which zsh)" >> /etc/shells;
+  #[[ $? == 0 ]] && echo "Make zsh the valid login shell done.";
+  #[[ $? == 0 ]] || echo "Make zsh the valid login shell failed.";
 
   [[ -z $(which chsh) ]] || chsh -s $(which zsh);
   [[ $? == 0 ]] && echo "Change login shell done.";
+  [[ $? == 0 ]] || echo "Change login shell failed.";
 }
 
-check_prerequsites
-if [[ ($? == 0) && (-z $(which zsh)) ]]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
+# Already track ohmyzsh using git submodule.
+#check_prerequsites
+#if [[ ($? == 0) ]]; then
+#  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#fi
 
 if [[ ! -z $(which zsh) ]]; then
   echo "zsh found"
@@ -51,3 +54,7 @@ if [[ ! -z $(which zsh) ]]; then
   echo "Change the default login shell: END"
 fi
 
+if [[ -d ${HOME}/.oh-my-zsh/ ]]; then
+  echo "Install zsh autosuggestions plugin"
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
