@@ -31,6 +31,9 @@ brew install ranger
 
 brew install fzf
 
+# install fd, a simple, fast and user-friendly alternative to find.
+brew install fd
+
 if [[ ! -z ${INSTALL_BIG_SIZE} ]]; then
     brew install texlive
 fi
