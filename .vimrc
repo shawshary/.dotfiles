@@ -228,6 +228,9 @@ packadd! vim-table-mode
 " conquer of completion
 packadd! coc.nvim
 
+" fzf
+set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -251,7 +254,7 @@ nnoremap <LEADER>tdc g:table_mode_delete_column_map<CR>
 
 
 " NERDTree: 
-nnoremap ntt :NERDTreeToggle<CR>
+nnoremap tt :NERDTreeToggle<CR>
 
 
 " UltiSnips: 

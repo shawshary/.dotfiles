@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-autosuggestions)
+plugins=(git vi-mode zsh-autosuggestions fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,9 +89,14 @@ export MANPATH="/usr/local/man:$MANPATH"
 #   export EDITOR='mvim'
 # fi
 
-# Set Env Variables
+# Set Env Variables #
+# misc
 export EDITOR=nvim
 export TERM=xterm-256color
+
+# fzf
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_OPTS="--height 40% --border --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 # Change the download source of brew bottles.
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
