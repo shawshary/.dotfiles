@@ -231,6 +231,9 @@ packadd! coc.nvim
 " fzf
 set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
 
+" pandoc integration
+packadd! vim-pandoc
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -267,4 +270,52 @@ let g:UltiSnipsEditSplit = 'context'
 " CoC Settings:
 let g:coc_global_extensions = [
     \   'coc-json', 'coc-vimlsp', 'coc-clangd', 'coc-sh', 'coc-snippets']
+
+
+" Pandoc:
+"
+" Do pandoc convert.
+if executable('pandoc-crossref')
+    nmap <F5> :Pandoc! pdf --toc --filter pandoc-crossref<CR>
+else
+    nmap <F5> :Pandoc! pdf --toc <CR>
+endif
+" Disabled the keyboard mapping.
+let g:pandoc#modules#disabled = ["keyboard"]
+
+" Function used to open the created file.
+let g:pandoc#command#custom_open = "MyPandocOpen"
+
+
+function! MyPandocOpen(file)
+    let file = shellescape(fnamemodify(a:file, ':p'))
+    let file_extension = fnamemodify(a:file, ':e')
+    if file_extension is? 'pdf'
+        if !empty($PDFVIEWER)
+            return expand('$PDFVIEWER') . ' ' . file
+        elseif executable('zathura')
+            return 'zathura ' . file
+        elseif executable('mupdf')
+            return 'mupdf ' . file
+        endif
+    elseif file_extension is? 'html'
+        if !empty($BROWSER)
+            return expand('$BROWSER') . ' ' . file
+        elseif executable('firefox')
+            return 'firefox ' . file
+        elseif executable('chromium')
+            return 'chromium ' . file
+        endif
+    elseif file_extension is? 'odt' && executable('okular')
+        return 'okular ' . file
+    elseif file_extension is? 'epub' && executable('okular')
+        return 'okular ' . file
+    else
+        return 'xdg-open ' . file
+    endif
+endfunction
+
+
+" Plugin Helptags:
+helptags ALL
 

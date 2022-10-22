@@ -22,3 +22,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule ".vim/pack/plugins-package/opt/vim-pandoc"]
+	path = .vim/pack/plugins-package/opt/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git

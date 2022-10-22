@@ -95,7 +95,7 @@ export EDITOR=nvim
 export TERM=xterm-256color
 
 # fzf
-export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden"
 export FZF_DEFAULT_OPTS="--height 40% --border --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 # Change the download source of brew bottles.
