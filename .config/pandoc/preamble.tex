@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               Pandoc preamble                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% @author: shawshary
+% @date: 2022-10-23
+% @brief: used by pandoc -H option when generating pdf files.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Chinese font support.
+\usepackage{xeCJK}
+\usepackage[utf8]{inputenc}
+
+% Geometry.
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% Graphic.
+\usepackage{graphicx}
+%\graphicspath{{/home/xinyu/Media/images/}}
+
+% Fix figure position.
+\usepackage{float}
+\floatplacement{figure}{H}
+
+% color box
+\usepackage[most]{tcolorbox}
+% Change the style of quote
+\tcolorboxenvironment{quote}{
+  enhanced,
+  breakable,
+  boxrule=1pt,
+  sharp corners=all,
+}
+
+
+% indent the first paragraph right after the section.
+\usepackage{indentfirst}
+
+% Paragraph indent and skip.
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1.5em}
+
+% 设置行距为默认行距的1.3倍。
+\renewcommand{\baselinestretch}{1.3}
+
+% Set the title of tables and figures to chinese format.
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+
+% Header and footnotes.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancyhf{}
+\fancyhead[LE,LO]{{\textit{Copyright 2022}}}
+%\fancyhead[RE,RO]{\includegraphics[width=1.5cm]{../image.png}}
+\fancyfoot[CE,CO]{\thepage}
+
