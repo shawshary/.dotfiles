@@ -250,8 +250,14 @@ endif
 
 " Vim Table Mode:
 "
-" For Markdown-compatible tables use
-let g:table_mode_corner='|'
+" For Markdown-compatible grid_tables use
+let g:table_mode_corner='+'
+"let g:table_mode_separator='|'
+let g:table_mode_corner_corner='+'
+"let g:table_mode_fillchar='-'
+let g:table_mode_header_fillchar='='
+"let g:table_mode_delimiter=','
+
 nnoremap <LEADER>tm :TableModeToggle<CR>
 nnoremap <LEADER>tdc g:table_mode_delete_column_map<CR>
 
@@ -275,6 +281,11 @@ let g:coc_global_extensions = [
 " Pandoc:
 "
 " Do pandoc convert.
+let PANDOC_PREAMBLE = "/home/xinyu/.config/pandoc/preamble.tex"
+let PANDOC_ARGS = "--from markdown+grid_tables --toc --filter pandoc-crossref
+    \ -V urlcolor=blue --highlight-style kate --number-sections 
+    \ -H "..PANDOC_PREAMBLE 
+
 if executable('pandoc-crossref')
     nmap <F5> :Pandoc! pdf --toc --filter pandoc-crossref<CR>
 else
