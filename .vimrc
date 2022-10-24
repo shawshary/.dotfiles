@@ -203,6 +203,12 @@ noremap <C-l> $
 inoremap <C-u> <esc>gUiwea
 inoremap <C-j> <esc>guiwgUlea
 
+" lazygit quick open.
+if executable('lazygit')
+    autocmd TermOpen * startinsert
+    noremap <leader>lg :tabe<CR>:-tabmove<CR>:terminal lazygit<CR> 
+endif
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -271,6 +277,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsEditSplit = 'context'
+"let g:UltiSnipsSnippetDirectories=[""]
 
 
 " CoC Settings:
