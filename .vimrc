@@ -277,7 +277,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsEditSplit = 'context'
-"let g:UltiSnipsSnippetDirectories=[""]
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/user_scripts/UltiSnips"]
 
 
 " CoC Settings:
