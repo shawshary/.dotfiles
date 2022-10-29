@@ -10,3 +10,5 @@
 .config/user-dirs.dirs
 .config/user-dirs.locale
 .vim/swapfiles
+.config/coc/commands
+.config/coc/list-marketplace-history.json
