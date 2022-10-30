@@ -285,7 +285,11 @@ let g:coc_global_extensions = [
     \   'coc-json', 'coc-vimlsp', 'coc-clangd', 'coc-sh', 'coc-snippets']
 
 
-" Pandoc:
+" FZF Settings:
+nmap <leader>fz :FZF<CR>
+
+
+" Vim Pandoc:
 "
 " Do pandoc convert.
 let PANDOC_PREAMBLE = "/home/xinyu/.config/pandoc/preamble.tex"
@@ -294,12 +298,14 @@ let PANDOC_ARGS = "--from markdown+grid_tables --toc --filter pandoc-crossref
     \ -H "..PANDOC_PREAMBLE 
 
 if executable('pandoc-crossref')
-    nmap <F5> :Pandoc! pdf --toc --filter pandoc-crossref<CR>
+    nmap <leader><F5> :execute "Pandoc! pdf" PANDOC_ARGS <CR>
+    nmap <F5> :execute "Pandoc pdf" PANDOC_ARGS <CR>
 else
     nmap <F5> :Pandoc! pdf --toc <CR>
 endif
+
 " Disabled the keyboard mapping.
-let g:pandoc#modules#disabled = ["keyboard"]
+let g:pandoc#modules#disabled = ["keyboard", "spell"]
 
 " Function used to open the created file.
 let g:pandoc#command#custom_open = "MyPandocOpen"
