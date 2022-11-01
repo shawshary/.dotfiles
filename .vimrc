@@ -240,6 +240,9 @@ set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
 " pandoc integration
 packadd! vim-pandoc
 
+" ale
+packadd! ale
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -338,6 +341,16 @@ function! MyPandocOpen(file)
         return 'xdg-open ' . file
     endif
 endfunction
+
+" ALE:
+" compatible with coc plugin
+let g:ale_disable_lsp=1
+let g:ale_fixers = {
+\   'markdown': ['trim_whitespace', 'remove_trailing_lines']
+\}
+" Call :ALEFix
+nmap <leader>af <Plug>(ale_fix)
+
 
 
 " Plugin Helptags:
