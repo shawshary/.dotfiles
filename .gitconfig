@@ -7,3 +7,5 @@
 [user]
 	email = xinyuloveswork@163.com
 	name = shawshary
+[core]
+	quotepath = false
