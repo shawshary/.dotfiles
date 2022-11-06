@@ -34,6 +34,8 @@ brew install fzf
 # install fd, a simple, fast and user-friendly alternative to find.
 brew install fd
 
+brew install gawk
+
 if [[ ! -z ${INSTALL_BIG_SIZE} ]]; then
     brew install texlive
 fi

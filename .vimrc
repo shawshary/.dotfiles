@@ -53,6 +53,7 @@ set nocompatible
 
 " String-encoding used internally (buffer?).
 set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936
 
 " List of dir names for the swap file, seperated with comma.
 set directory=$HOME/.vim/swapfiles/
@@ -128,6 +129,9 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
+"
+let g:markdown_fenced_languages = ['bash', 'git', 'c', 'sh']
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -144,9 +148,9 @@ let maplocalleader=" "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set indent info for different file types.
-autocmd Filetype cpp 
+autocmd Filetype cpp
     \ setlocal cindent expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
-autocmd Filetype c 
+autocmd Filetype c
     \ setlocal cindent expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
 
 autocmd Filetype sh setlocal expandtab shiftwidth=2 tabstop=2 sts=2
@@ -154,9 +158,9 @@ autocmd Filetype tex setlocal expandtab shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype matlab setlocal fo+=cj expandtab
 
 " Remember the position when you leave the buffer.
-au BufReadPost * 
-    \ if line("'\"") > 1 && line("'\"") <= line("$") 
-    \ | exe "normal! g'\"" 
+au BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$")
+    \ | exe "normal! g'\""
     \ | endif
 
 
@@ -212,7 +216,7 @@ inoremap <C-j> <esc>guiwgUlea
 " lazygit quick open.
 if executable('lazygit')
     autocmd TermOpen * startinsert
-    noremap <leader>lg :tabe<CR>:-tabmove<CR>:terminal lazygit<CR> 
+    noremap <leader>lg :tabe<CR>:-tabmove<CR>:terminal lazygit<CR>
 endif
 
 
@@ -255,7 +259,7 @@ packadd! ale
 " Plugins Setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Colorscheme: 
+" Colorscheme:
 syntax enable
 set background=dark
 if $TERM == "xterm-256color"
@@ -277,11 +281,11 @@ nnoremap <LEADER>tm :TableModeToggle<CR>
 nnoremap <LEADER>tdc g:table_mode_delete_column_map<CR>
 
 
-" NERDTree: 
+" NERDTree:
 nnoremap tt :NERDTreeToggle<CR>
 
 
-" UltiSnips: 
+" UltiSnips:
 let g:UltiSnipsExpandTrigger = "<c-y>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
@@ -330,21 +334,21 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>ld  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> ;ld  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>le  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> ;le  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>lc  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> ;lc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>lo  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> ;lo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>ls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> ;ls  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> ;j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> ;k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> ;p  :<C-u>CocListResume<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -359,8 +363,8 @@ nmap <leader>fz :FZF<CR>
 " Do pandoc convert.
 let PANDOC_PREAMBLE = "/home/xinyu/.config/pandoc/preamble.tex"
 let PANDOC_ARGS = "--from markdown+grid_tables --toc --filter pandoc-crossref
-    \ -V urlcolor=blue --highlight-style kate --number-sections 
-    \ -H "..PANDOC_PREAMBLE 
+    \ -V urlcolor=blue --highlight-style kate --number-sections
+    \ -H "..PANDOC_PREAMBLE
 
 if executable('pandoc-crossref')
     nmap <leader><F5> :execute "Pandoc! pdf" PANDOC_ARGS <CR>
@@ -408,7 +412,7 @@ endfunction
 " compatible with coc plugin
 let g:ale_disable_lsp=1
 let g:ale_fixers = {
-\   'markdown': ['trim_whitespace', 'remove_trailing_lines']
+\   '*': ['trim_whitespace', 'remove_trailing_lines']
 \}
 " Call :ALEFix
 nmap <leader>af <Plug>(ale_fix)
@@ -417,4 +421,3 @@ nmap <leader>af <Plug>(ale_fix)
 
 " Plugin Helptags:
 helptags ALL
-

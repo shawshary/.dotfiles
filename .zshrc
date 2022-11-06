@@ -94,6 +94,13 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR=nvim
 export TERM=xterm-256color
 
+# path
+export PATH=$PATH:$HOME/.local/bin
+
+# locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # fzf
 export FZF_DEFAULT_COMMAND="fd --type f --hidden"
 export FZF_DEFAULT_OPTS="--height 40% --border --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
@@ -102,6 +109,18 @@ export FZF_DEFAULT_OPTS="--height 40% --border --preview '(highlight -O ansi -l 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE='https://mirrors.ustc.edu.cn/homebrew-core.git'
+
+# proxy
+#username=
+#password=
+proxy="192.168.36.1:8887"
+export HTTPS_PROXY="http://$proxy"
+export HTTP_PROXY="http://$proxy"
+export https_proxy="http://$proxy"
+export http_proxy="http://$proxy"
+export all_proxy="http://$proxy"
+export no_proxy="127.0.0.10/8, localhost, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16"
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
