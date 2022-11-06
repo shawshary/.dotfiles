@@ -53,6 +53,7 @@ set nocompatible
 
 " String-encoding used internally (buffer?).
 set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936
 
 " List of dir names for the swap file, seperated with comma.
 set directory=$HOME/.vim/swapfiles/
@@ -120,8 +121,17 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" enable fzf.
-set runtimepath+=/home/linuxbrew/.linuxbrew/opt/fzf
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+"
+let g:markdown_fenced_languages = ['bash', 'git', 'c', 'sh']
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -138,9 +148,9 @@ let maplocalleader=" "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set indent info for different file types.
-autocmd Filetype cpp 
+autocmd Filetype cpp
     \ setlocal cindent expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
-autocmd Filetype c 
+autocmd Filetype c
     \ setlocal cindent expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
 
 autocmd Filetype sh setlocal expandtab shiftwidth=2 tabstop=2 sts=2
@@ -148,9 +158,9 @@ autocmd Filetype tex setlocal expandtab shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype matlab setlocal fo+=cj expandtab
 
 " Remember the position when you leave the buffer.
-au BufReadPost * 
-    \ if line("'\"") > 1 && line("'\"") <= line("$") 
-    \ | exe "normal! g'\"" 
+au BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$")
+    \ | exe "normal! g'\""
     \ | endif
 
 
@@ -206,7 +216,7 @@ inoremap <C-j> <esc>guiwgUlea
 " lazygit quick open.
 if executable('lazygit')
     autocmd TermOpen * startinsert
-    noremap <leader>lg :tabe<CR>:-tabmove<CR>:terminal lazygit<CR> 
+    noremap <leader>lg :tabe<CR>:-tabmove<CR>:terminal lazygit<CR>
 endif
 
 
@@ -235,7 +245,7 @@ packadd! vim-table-mode
 packadd! coc.nvim
 
 " fzf
-set runtimepath+=/home/linuxbrew/.linuxbrew/bin/fzf
+set runtimepath+=/home/linuxbrew/.linuxbrew/opt/fzf
 
 " pandoc integration
 packadd! vim-pandoc
@@ -249,7 +259,7 @@ packadd! ale
 " Plugins Setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Colorscheme: 
+" Colorscheme:
 syntax enable
 set background=dark
 if $TERM == "xterm-256color"
@@ -271,12 +281,12 @@ nnoremap <LEADER>tm :TableModeToggle<CR>
 nnoremap <LEADER>tdc g:table_mode_delete_column_map<CR>
 
 
-" NERDTree: 
+" NERDTree:
 nnoremap tt :NERDTreeToggle<CR>
 
 
-" UltiSnips: 
-let g:UltiSnipsExpandTrigger = "<tab>"
+" UltiSnips:
+let g:UltiSnipsExpandTrigger = "<c-y>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsEditSplit = 'context'
@@ -286,6 +296,62 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/user_scripts/UltiSnips"]
 " CoC Settings:
 let g:coc_global_extensions = [
     \   'coc-json', 'coc-vimlsp', 'coc-clangd', 'coc-sh', 'coc-snippets']
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location
+" list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> ;ld  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> ;le  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> ;lc  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> ;lo  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> ;ls  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> ;j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> ;k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> ;p  :<C-u>CocListResume<CR>
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 " FZF Settings:
@@ -297,8 +363,8 @@ nmap <leader>fz :FZF<CR>
 " Do pandoc convert.
 let PANDOC_PREAMBLE = "/home/xinyu/.config/pandoc/preamble.tex"
 let PANDOC_ARGS = "--from markdown+grid_tables --toc --filter pandoc-crossref
-    \ -V urlcolor=blue --highlight-style kate --number-sections 
-    \ -H "..PANDOC_PREAMBLE 
+    \ -V urlcolor=blue --highlight-style kate --number-sections
+    \ -H "..PANDOC_PREAMBLE
 
 if executable('pandoc-crossref')
     nmap <leader><F5> :execute "Pandoc! pdf" PANDOC_ARGS <CR>
@@ -346,7 +412,7 @@ endfunction
 " compatible with coc plugin
 let g:ale_disable_lsp=1
 let g:ale_fixers = {
-\   'markdown': ['trim_whitespace', 'remove_trailing_lines']
+\   '*': ['trim_whitespace', 'remove_trailing_lines']
 \}
 " Call :ALEFix
 nmap <leader>af <Plug>(ale_fix)
@@ -355,4 +421,3 @@ nmap <leader>af <Plug>(ale_fix)
 
 " Plugin Helptags:
 helptags ALL
-
