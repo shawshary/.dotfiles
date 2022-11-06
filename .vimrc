@@ -295,7 +295,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/user_scripts/UltiSnips"]
 
 " CoC Settings:
 let g:coc_global_extensions = [
-    \   'coc-json', 'coc-vimlsp', 'coc-clangd', 'coc-sh', 'coc-snippets']
+    \   'coc-json', 'coc-vimlsp', 'coc-clangd', 'coc-sh', 'coc-snippets',
+    \   'coc-pyright', 'coc-tsserver']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -307,6 +308,7 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -353,6 +355,14 @@ nnoremap <silent><nowait> ;p  :<C-u>CocListResume<CR>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " FZF Settings:
 nmap <leader>fz :FZF<CR>
@@ -375,6 +385,9 @@ endif
 
 " Disabled the keyboard mapping.
 let g:pandoc#modules#disabled = ["keyboard", "spell"]
+
+" Make textwidth work.
+let g:pandoc#formatting#mode="ha"
 
 " Function used to open the created file.
 let g:pandoc#command#custom_open = "MyPandocOpen"
