@@ -28,3 +28,6 @@ CONFIG_FILE_PATH=${PWD}/.. # Path of original dotfiles.
 [ -d ${CONFIG_FILE_PATH}/.oh-my-zsh/ ] \
     && ln -fsv ${CONFIG_FILE_PATH}/.oh-my-zsh/ ${HOME}/
 
+[ -f ${CONFIG_FILE_PATH}/.latexmkrc ] \
+    && ln -fsv ${CONFIG_FILE_PATH}/.latexmkrc ${HOME}/.latexmkrc
+
