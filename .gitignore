@@ -15,3 +15,6 @@
 .config/coc/extensions/node_modules/coc-pyright
 .config/coc/extensions/node_modules/coc-tsserver
 .config/coc/list-location-history.json
+.config/enchant/en_US.dic
+.config/enchant/en_US.exc
+.config/inkscape/extension-errors.log
