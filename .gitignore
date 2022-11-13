@@ -12,3 +12,6 @@
 .vim/swapfiles
 .config/coc/commands
 .config/coc/list-marketplace-history.json
+.config/coc/extensions/node_modules/coc-pyright
+.config/coc/extensions/node_modules/coc-tsserver
+.config/coc/list-location-history.json
