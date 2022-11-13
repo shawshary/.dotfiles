@@ -25,6 +25,9 @@ CONFIG_FILE_PATH=${PWD}/.. # Path of original dotfiles.
 [ -f ${CONFIG_FILE_PATH}/.tmux.conf ] \
     && ln -fsv ${CONFIG_FILE_PATH}/.tmux.conf ${HOME}/.tmux.conf
 
+[ -d ${CONFIG_FILE_PATH}/.tmux/ ] \
+    && ln -fsv ${CONFIG_FILE_PATH}/.tmux/ ${HOME}/
+
 [ -d ${CONFIG_FILE_PATH}/.oh-my-zsh/ ] \
     && ln -fsv ${CONFIG_FILE_PATH}/.oh-my-zsh/ ${HOME}/
 
