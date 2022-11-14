@@ -28,3 +28,6 @@
 [submodule ".vim/pack/plugins-package/opt/ale"]
 	path = .vim/pack/plugins-package/opt/ale
 	url = https://github.com/dense-analysis/ale
+[submodule ".tmux/plugins/tmux-themepack"]
+	path = .tmux/plugins/tmux-themepack
+	url = https://github.com/jimeh/tmux-themepack
