@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 
+
 #######################
 #  brew installation  #
 #######################
@@ -7,37 +8,20 @@
 # You can change the source of brew.
 # See http://t.zoukankan.com/iAmSoScArEd-p-12394625.html
 
-brew install linux-headers@5.15
+# fd: a simple, fast and user-friendly alternative to find.
+TOOLS=(python nvim tmux pandoc pandoc-crossref lazygit zsh tree node ranger \
+       fzf fd gawk todo-txt)
 
-brew install python@3.10 # need to remove the '--with-lto' flag.
+if [[ $(which brew) ]]; then
+  for tool in "${TOOLS[@]}"; do
+    brew install $tool
+  done
 
-#brew install -s vim # need to configure 'with-features=huge, --with-x'
-
-brew install nvim
-
-brew install tmux
-
-brew install pandoc pandoc-crossref
-
-brew install lazygit
-
-brew install zsh
-
-brew install tree
-
-brew install node
-
-brew install ranger
-
-brew install fzf
-
-# install fd, a simple, fast and user-friendly alternative to find.
-brew install fd
-
-brew install gawk
-
-if [[ ! -z ${INSTALL_BIG_SIZE} ]]; then
+  if [[ ! -z ${INSTALL_BIG_SIZE} ]]; then
     brew install texlive
+  fi
+else
+  echo "brew not found! Please install."
 fi
 
 
@@ -46,5 +30,4 @@ fi
 ######################
 
 pip3 install pynvim --upgrade # for nvim to work.
-
 

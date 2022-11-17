@@ -34,3 +34,8 @@ CONFIG_FILE_PATH=${PWD}/.. # Path of original dotfiles.
 [ -f ${CONFIG_FILE_PATH}/.latexmkrc ] \
     && ln -fsv ${CONFIG_FILE_PATH}/.latexmkrc ${HOME}/.latexmkrc
 
+[ -f ${CONFIG_FILE_PATH}/.todo.cfg ] \
+    && ln -fsv ${CONFIG_FILE_PATH}/.todo.cfg ${HOME}/.todo.cfg
+
+[ -d ${CONFIG_FILE_PATH}/.todo.actions.d/ ] \
+    && ln -fsv ${CONFIG_FILE_PATH}/.todo.actions.d/ ${HOME}/

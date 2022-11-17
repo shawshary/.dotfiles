@@ -11,3 +11,4 @@ alias lg=lazygit
 
 alias ra=ranger
 
+alias to='todo.sh'
