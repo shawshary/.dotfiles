@@ -372,7 +372,7 @@ nmap <leader>fz :FZF<CR>
 "
 " Do pandoc convert.
 let PANDOC_PREAMBLE = "/home/xinyu/.config/pandoc/preamble.tex"
-let PANDOC_ARGS = "--from markdown+grid_tables --toc --filter pandoc-crossref
+let PANDOC_ARGS = "--from markdown --toc --filter pandoc-crossref
     \ -V urlcolor=blue --highlight-style kate --number-sections
     \ -H "..PANDOC_PREAMBLE
 
