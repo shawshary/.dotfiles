@@ -253,6 +253,8 @@ packadd! vim-pandoc
 " ale
 packadd! ale
 
+" leap.nvim
+packadd! leap.nvim
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -421,6 +423,7 @@ function! MyPandocOpen(file)
     endif
 endfunction
 
+
 " ALE:
 " compatible with coc plugin
 let g:ale_disable_lsp=1
@@ -429,6 +432,12 @@ let g:ale_fixers = {
 \}
 " Call :ALEFix
 nmap <leader>af <Plug>(ale_fix)
+
+
+" LEAP:
+nmap <leader>f <Plug>(leap-forward-to)
+nmap <leader>F <Plug>(leap-backward-to)
+nmap <leader>gf <Plug>(leap-cross-window)
 
 
 
