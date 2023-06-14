@@ -256,6 +256,10 @@ packadd! ale
 " leap.nvim
 packadd! leap.nvim
 
+" vim-mark
+packadd! vim-ingo-library
+packadd! vim-mark
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins Setting
