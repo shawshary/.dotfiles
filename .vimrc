@@ -251,7 +251,7 @@ set runtimepath+=/home/linuxbrew/.linuxbrew/opt/fzf
 packadd! vim-pandoc
 
 " ale
-packadd! ale
+"packadd! ale
 
 " leap.nvim
 packadd! leap.nvim
@@ -428,14 +428,14 @@ function! MyPandocOpen(file)
 endfunction
 
 
-" ALE:
-" compatible with coc plugin
-let g:ale_disable_lsp=1
-let g:ale_fixers = {
-\   '*': ['trim_whitespace', 'remove_trailing_lines']
-\}
-" Call :ALEFix
-nmap <leader>af <Plug>(ale_fix)
+"" ALE:
+"" compatible with coc plugin
+"let g:ale_disable_lsp=1
+"let g:ale_fixers = {
+"\   '*': ['trim_whitespace', 'remove_trailing_lines']
+"\}
+"" Call :ALEFix
+"nmap <leader>af <Plug>(ale_fix)
 
 
 " LEAP:

@@ -10,7 +10,7 @@
 
 # fd: a simple, fast and user-friendly alternative to find.
 TOOLS=(python nvim tmux pandoc pandoc-crossref lazygit zsh tree node ranger \
-       fzf fd gawk todo-txt)
+       fzf fd gawk todo-txt xclip)
 
 if [[ $(which brew) ]]; then
   for tool in "${TOOLS[@]}"; do

@@ -2,6 +2,6 @@
     "diagnostic.floatConfig": {
         "border": false
     },
-    "diagnostic.displayByAle": true,
+    "clangd.path": "/home/xinyu/.local/bin/clangd",
     "snippets.userSnippetsDirectory": "$HOME/.vim/user_scripts/UltiSnips"
 }
