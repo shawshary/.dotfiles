@@ -8,5 +8,6 @@
     "coc-sh": ">=0.7.0",
     "coc-tsserver": ">=2.0.0",
     "coc-pyright": ">=1.1.275"
-  }
+  },
+  "lastUpdate": 1686927778741
 }
