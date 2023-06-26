@@ -9,3 +9,5 @@
 	name = shawshary
 [core]
 	quotepath = false
+[commit]
+	template = /home/shawshary/.dotfiles/.gitmessage
