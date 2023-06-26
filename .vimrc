@@ -129,7 +129,7 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-"
+" highlight markdown code block
 let g:markdown_fenced_languages = ['bash', 'git', 'c', 'sh']
 
 
