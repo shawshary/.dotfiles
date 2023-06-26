@@ -163,6 +163,9 @@ au BufReadPost *
     \ | exe "normal! g'\""
     \ | endif
 
+" Do not insert the current comment leader after hitting 'o' or 'O' in Normal
+" mode.
+au FileType * set fo-=o
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
