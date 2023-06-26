@@ -260,6 +260,8 @@ packadd! leap.nvim
 packadd! vim-ingo-library
 packadd! vim-mark
 
+" auto-pairs
+packadd! auto-pairs
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins Setting

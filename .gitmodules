@@ -40,3 +40,6 @@
 [submodule ".vim/pack/plugins-package/opt/vim-mark"]
 	path = .vim/pack/plugins-package/opt/vim-mark
 	url = https://github.com/inkarkat/vim-mark
+[submodule ".vim/pack/plugins-package/opt/auto-pairs"]
+	path = .vim/pack/plugins-package/opt/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
