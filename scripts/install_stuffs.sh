@@ -13,6 +13,7 @@ TOOLS=(python nvim tmux pandoc pandoc-crossref lazygit zsh tree node ranger \
        fzf fd gawk todo-txt xclip)
 
 if [[ $(which brew) ]]; then
+  brew update
   for tool in "${TOOLS[@]}"; do
     brew install $tool
   done
