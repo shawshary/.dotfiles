@@ -9,7 +9,7 @@
 # See http://t.zoukankan.com/iAmSoScArEd-p-12394625.html
 
 # fd: a simple, fast and user-friendly alternative to find.
-TOOLS=(python nvim tmux pandoc pandoc-crossref lazygit zsh tree node ranger \
+TOOLS=(cmake python nvim tmux pandoc pandoc-crossref lazygit zsh tree node ranger \
        fzf fd gawk todo-txt xclip)
 
 if [[ $(which brew) ]]; then
