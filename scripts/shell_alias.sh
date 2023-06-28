@@ -9,6 +9,6 @@ alias vim=nvim
 
 alias lg=lazygit
 
-alias ra=ranger
+alias ra='source ranger'
 
 alias to='todo.sh'
