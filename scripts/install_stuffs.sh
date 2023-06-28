@@ -31,4 +31,7 @@ fi
 ######################
 
 pip3 install pynvim --upgrade # for nvim to work.
+pip3 install virtualenvwrapper
 
+# In the virtual environment, run the following command:
+# pip3 install conan

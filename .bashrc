@@ -136,6 +136,11 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE='https://mirrors.ustc.edu.cn/homebrew-core.git'
 export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
+# Setup virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/projects
+source $(which virtualenvwrapper.sh)
+
 # load user defined aliases.
 if [ -f ~/.dotfiles/scripts/shell_alias.sh ]; then
   source ~/.dotfiles/scripts/shell_alias.sh

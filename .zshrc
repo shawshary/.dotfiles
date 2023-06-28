@@ -125,6 +125,11 @@ export http_proxy="http://$proxy"
 export all_proxy="http://$proxy"
 export no_proxy="127.0.0.10/8, localhost, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16"
 
+# Setup virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/home/linuxbrew/.linuxbrew/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/projects
+source $(which virtualenvwrapper.sh)
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
