@@ -132,6 +132,8 @@ set signcolumn=yes
 " highlight markdown code block
 let g:markdown_fenced_languages = ['bash', 'git', 'c', 'sh']
 
+" hard-code the interpreter path
+let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -305,6 +307,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/user_scripts/UltiSnips"]
 
 
 " CoC Settings:
+
 let g:coc_global_extensions = [
     \   'coc-json', 'coc-vimlsp', 'coc-clangd', 'coc-sh', 'coc-snippets',
     \   'coc-pyright', 'coc-tsserver']
