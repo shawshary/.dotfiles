@@ -117,7 +117,7 @@ export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 # proxy
 #username=
 #password=
-proxy="192.168.36.1:8887"
+proxy="192.168.3.220:8887"
 export HTTPS_PROXY="http://$proxy"
 export HTTP_PROXY="http://$proxy"
 export https_proxy="http://$proxy"
