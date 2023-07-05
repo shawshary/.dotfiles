@@ -151,4 +151,4 @@ source $(which virtualenvwrapper.sh)
 #  keybind setting  #
 #####################
 bindkey '^y' autosuggest-accept 
-
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00eaff,bold"
