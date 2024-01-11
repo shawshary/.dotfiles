@@ -279,6 +279,14 @@ if $TERM == "xterm-256color"
     colorscheme iceberg
 endif
 
+" Make highlights used for highlighting same symbols in the buff at the current
+" cursor position more visiable.
+highlight CocHighlightText cterm=underline ctermfg=black ctermbg=12
+" Tab pages line, not active tab page label.
+highlight TabLine ctermfg=234 ctermbg=252
+
+
+
 
 " Vim Table Mode:
 "
