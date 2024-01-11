@@ -3,6 +3,7 @@
         "border": false
     },
     "clangd.path": "$HOME/.local/bin/clangd",
+    "clangd.arguments": ["--query-driver=/usr/bin/c++", "--query-driver=/usr/bin/cc"],
     "snippets.userSnippetsDirectory": "$HOME/.vim/user_scripts/UltiSnips",
     "snippets.ultisnips.pythonPrompt": false
 }
