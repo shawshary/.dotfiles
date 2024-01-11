@@ -12,3 +12,5 @@ alias lg=lazygit
 alias ra='source ranger'
 
 alias to='todo.sh'
+
+alias rg='rgrep'
