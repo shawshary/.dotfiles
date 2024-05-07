@@ -393,16 +393,16 @@ nmap <leader>fz :FZF<CR>
 " Vim Pandoc:
 "
 " Do pandoc convert.
-let PANDOC_PREAMBLE = "/home/xinyu/.config/pandoc/preamble.tex"
+let PANDOC_PREAMBLE = $HOME.."/.config/pandoc/preamble.tex"
 let PANDOC_ARGS = "--from markdown --toc --filter pandoc-crossref
     \ -V urlcolor=blue --highlight-style kate --number-sections
     \ -H "..PANDOC_PREAMBLE
 
 if executable('pandoc-crossref')
-    nmap <leader><F5> :execute "Pandoc! pdf" PANDOC_ARGS <CR>
-    nmap <F5> :execute "Pandoc pdf" PANDOC_ARGS <CR>
+    nmap <leader><F5> :execute "Pandoc! pdf" PANDOC_ARGS <CR><ESC>
+    nmap <F5> :execute "Pandoc pdf" PANDOC_ARGS <CR><ESC>
 else
-    nmap <F5> :Pandoc! pdf --toc <CR>
+    nmap <F5> :Pandoc! pdf --toc <CR><ESC>
 endif
 
 " Disabled the keyboard mapping.

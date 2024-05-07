@@ -6,9 +6,15 @@
 % @brief: used by pandoc -H option when generating pdf files.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage[utf8]{inputenc}
+
+% English font support.
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
 % Chinese font support.
 \usepackage{xeCJK}
-\usepackage[utf8]{inputenc}
+\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}
 
 % Geometry.
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
