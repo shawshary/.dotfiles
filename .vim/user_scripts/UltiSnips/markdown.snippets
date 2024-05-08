@@ -147,7 +147,7 @@ endsnippet
 
 snippet --- "pandoc metadata" b
 ---
-	title: ${1:${VISUAL}}
+	title: ${1:`!p snip.rv = snip.fn`}
 	author: ${2:${VISUAL:shawshary}}
 	date: `!v strftime("%Y-%m-%d")`
 ---
