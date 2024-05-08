@@ -14,3 +14,7 @@ alias ra='source ranger'
 alias to='todo.sh'
 
 alias rg='rgrep'
+
+# Tmux alias
+alias tsh='tmux split -h'
+alias tsw='tmux splitw'
