@@ -406,10 +406,16 @@ else
 endif
 
 " Disabled the keyboard mapping.
-let g:pandoc#modules#disabled = ["keyboard", "spell"]
+let g:pandoc#modules#disabled = ["keyboard", "spell", "format"]
 
 " Make textwidth work.
-let g:pandoc#formatting#mode="ha"
+"let g:pandoc#formatting#mode="ha"
+
+" Autoexec on writes
+let g:pandoc#command#autoexec_on_writes = 1
+let g:pandoc#command#autoexec_command = "!pandoc --from markdown --to pdf
+    \ --pdf-engine=xelatex --toc --filter pandoc-crossref -V urlcolor=blue
+    \ --highlight-style kate --number-sections -H "..PANDOC_PREAMBLE.." -o "..expand('%:r')..".pdf %" 
 
 " Function used to open the created file.
 let g:pandoc#command#custom_open = "MyPandocOpen"
