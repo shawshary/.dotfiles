@@ -159,6 +159,10 @@ autocmd Filetype sh setlocal expandtab shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype tex setlocal expandtab shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype matlab setlocal fo+=cj expandtab
 
+" Set format options, influence how vim format the text.
+autocmd Filetype markdown set formatoptions=tanmM]j tw=108
+
+
 " Remember the position when you leave the buffer.
 au BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$")
@@ -406,16 +410,13 @@ else
 endif
 
 " Disabled the keyboard mapping.
-let g:pandoc#modules#disabled = ["keyboard", "spell", "format"]
-
-" Make textwidth work.
-"let g:pandoc#formatting#mode="ha"
+let g:pandoc#modules#disabled = ["keyboard", "spell", "formatting"]
 
 " Autoexec on writes
-let g:pandoc#command#autoexec_on_writes = 1
-let g:pandoc#command#autoexec_command = "!pandoc --from markdown --to pdf
-    \ --pdf-engine=xelatex --toc --filter pandoc-crossref -V urlcolor=blue
-    \ --highlight-style kate --number-sections -H "..PANDOC_PREAMBLE.." -o "..expand('%:r')..".pdf %" 
+"let g:pandoc#command#autoexec_on_writes = 1
+"let g:pandoc#command#autoexec_command = "!pandoc --from markdown --to pdf
+"    \ --pdf-engine=xelatex --toc --filter pandoc-crossref -V urlcolor=blue
+"    \ --highlight-style kate --number-sections -H "..PANDOC_PREAMBLE.." -o "..expand('%:r')..".pdf % 2>&1 > /dev/null &" 
 
 " Function used to open the created file.
 let g:pandoc#command#custom_open = "MyPandocOpen"
