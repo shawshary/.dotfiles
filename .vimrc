@@ -133,7 +133,7 @@ set signcolumn=yes
 let g:markdown_fenced_languages = ['bash', 'git', 'c', 'sh']
 
 " hard-code the interpreter path
-let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
+let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/Cellar/python@3.11/3.11.9/bin/python3.11'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,7 +160,7 @@ autocmd Filetype tex setlocal expandtab shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype matlab setlocal fo+=cj expandtab
 
 " Set format options, influence how vim format the text.
-autocmd Filetype markdown set formatoptions=tanmM]j tw=108
+autocmd Filetype markdown set formatoptions=tnmM]j tw=108
 
 
 " Remember the position when you leave the buffer.
