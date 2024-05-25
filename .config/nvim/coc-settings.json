@@ -3,7 +3,9 @@
         "border": false
     },
     "clangd.path": "$HOME/.local/bin/clangd",
-    "clangd.arguments": ["--query-driver=/usr/bin/c++", "--query-driver=/usr/bin/cc"],
+    "clangd.arguments": ["--query-driver=/usr/bin/c++", "--query-driver=/usr/bin/cc",
+        "--query-driver=/home/shawshary/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc",
+        "--query-driver=/home/shawshary/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-g++"],
     "snippets.userSnippetsDirectory": "$HOME/.vim/user_scripts/UltiSnips",
     "snippets.ultisnips.pythonPrompt": false
 }
