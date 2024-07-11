@@ -19,3 +19,4 @@
 .config/enchant/en_US.exc
 .config/inkscape/extension-errors.log
 .config/coc/list-snippets-history.json
+.config/coc/extensions/coc-json-data/json-schema-cache

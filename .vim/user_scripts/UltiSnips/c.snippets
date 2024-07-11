@@ -85,7 +85,7 @@ if len(t[1]) > 0:
 } /* for ($1; $2; `!p if len(t[1]) > 0: snip.rv = t[1].split('=')[0].split()[-1]`++) */
 endsnippet
 
-snippet once "Include header once only guard"
+snippet headguard "Include header once only guard"
 #ifndef ${1:`!p
 if not snip.c:
 	import random, string
@@ -151,36 +151,118 @@ endglobal
 
 post_jump "if snip.tabstop == 0 : split_line(snip.tabstops[4].current_text)"
 snippet head "File Header" b
-/******************************************************************************
-* File:             `!p snip.rv = fn`
-*
-* Author:           ${2}  
-* Created:          `date +%m/%d/%y` 
-* Description:      ${4:${VISUAL}}
-*****************************************************************************/
+/**
+ * @file `!p snip.rv = fn`
+ * @brief ${1:${VISUAL}}
+ * @details ${2:${VISUAL}}
+ * @author shawshary  
+ * @date `date +%Y-%m-%d` 
+ */
 ${0}
 endsnippet
 
 post_jump "if snip.tabstop == 0 : split_line(snip.tabstops[4].current_text)"
 snippet func "Function Header" 
-/******************************************************************************
-* Function:         $1
-* Description:      ${4:${VISUAL}}
-* Where:`!p 
+/**
+ * @fn ${1}(${2})
+ * @brief ${4:${VISUAL}}
+ * `!p 
 snip.rv = ""
 snip >> 2
 
 args = get_args(t[2])
 if args:
 	for arg in args:
-		snip.rv += '\n' + '*' + ' '*19 + arg + ' - TODO'
+		snip.rv += '\n' + ' *' + ' @param[in] ' + arg.split(' ')[-1] + ' TODO'
 snip << 2
 `
-* Return:           $5
-* Error:            $6
-*****************************************************************************/
-${1}($2){
+ * @return $5
+ */
+$1($2){
 	${0}
 }
 endsnippet
+
+snippet srclayout "Srouce file layout" b
+/*******************************************************************************
+ *                                Include Files                                *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                                   Macros                                    *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                      Internal Structure or Enumeration                      *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                            Function Declaration                             *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                             Function Definition                             *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                         Global or Static Variables                          *
+ ******************************************************************************/
+
+$0
+endsnippet
+
+snippet headerlayout "Header file layout" b
+/*******************************************************************************
+ *                                Include Files                                *
+ ******************************************************************************/
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/*******************************************************************************
+ *                                   Macros                                    *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                          Structure or Enumeration                           *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                            Function Declaration                             *
+ ******************************************************************************/
+
+$0
+
+#ifdef __cplusplus
+}
+#endif
+endsnippet
+
+snippet struct "Structure declaration"
+/**
+ * @struct $1 `!p snip.rv = fn`
+ * @brief ${2:${VISUAL:Brief.}}
+ *
+ * ${3:${VISUAL:Detail.}}
+ */
+typedef struct {
+	$4
+} $1;
+ $0
+endsnippet
+
+snippet enum "Enumeration declaration"
+/**
+ * @enum $1
+ * @brief ${2:${VISUAL:Brief.}}
+ *
+ * ${3:${VISUAL:Detail.}}
+ */
+typedef enum {
+	$4
+} $1;
+ $0
+endsnippet
+
 # vim:ft=snippets:
