@@ -79,7 +79,7 @@ set laststatus=2
 set autochdir
 
 " Maimum width of text tht is being inserted.
-set textwidth=80
+set textwidth=108
 " copy indent from the current line when starting a new line.
 set autoindent
 "replace tab with spaces
@@ -151,11 +151,11 @@ let maplocalleader=" "
 
 " set indent info for different file types.
 autocmd Filetype cpp
-    \ setlocal cindent expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
+    \ setlocal cindent expandtab cino=g0 shiftwidth=4 tabstop=4 sts=4
 autocmd Filetype c
-    \ setlocal cindent expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
+    \ setlocal cindent expandtab cino=g0 shiftwidth=4 tabstop=4 sts=4
 
-autocmd Filetype sh setlocal expandtab shiftwidth=2 tabstop=2 sts=2
+autocmd Filetype sh setlocal expandtab shiftwidth=4 tabstop=4 sts=4
 autocmd Filetype tex setlocal expandtab shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype matlab setlocal fo+=cj expandtab
 
