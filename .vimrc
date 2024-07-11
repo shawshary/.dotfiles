@@ -354,11 +354,21 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap ;rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap ;fs  <Plug>(coc-format-selected)
+xmap ;fs  <Plug>(coc-format-selected)
+nmap ;fsa  <Plug>(coc-format)
+xmap ;fsa  <Plug>(coc-format)
+nmap ;qf <Plug>(coc-fix-current)
+
+" Cursor
+nmap <silent> <C-c> <Plug>(coc-cursors-position)
+nmap <silent> <C-d> <Plug>(coc-cursors-word)
+xmap <silent> <C-d> <Plug>(coc-cursors-range)
+" use normal command like `<leader>xi(`
+nmap <leader>x  <Plug>(coc-cursors-operator)
 
 " Mappings for CoCList
 " Show all diagnostics.
