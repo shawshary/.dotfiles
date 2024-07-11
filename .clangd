@@ -1,0 +1,9 @@
+CompileFlags:
+  CompilationDatabase: build/Release
+
+Diagnostics:
+  Suppress: []
+  
+Index:
+  Background: Build
+
