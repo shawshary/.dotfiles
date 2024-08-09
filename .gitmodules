@@ -43,3 +43,12 @@
 [submodule ".vim/pack/plugins-package/opt/auto-pairs"]
 	path = .vim/pack/plugins-package/opt/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule ".vim/pack/plugins-package/opt/telescope.nvim"]
+	path = .vim/pack/plugins-package/opt/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule ".vim/pack/plugins-package/opt/plenary.nvim"]
+	path = .vim/pack/plugins-package/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule ".vim/pack/plugins-package/opt/nvim-treesitter"]
+	path = .vim/pack/plugins-package/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter

@@ -133,7 +133,7 @@ set signcolumn=yes
 let g:markdown_fenced_languages = ['bash', 'git', 'c', 'sh']
 
 " hard-code the interpreter path
-let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/Cellar/python@3.11/3.11.9/bin/python3.11'
+let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -271,6 +271,12 @@ packadd! vim-mark
 
 " auto-pairs
 packadd! auto-pairs
+
+" telescope
+packadd! plenary.nvim
+packadd! nvim-treesitter
+packadd! telescope.nvim
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins Setting
@@ -476,7 +482,22 @@ nmap <leader>f <Plug>(leap-forward-to)
 nmap <leader>F <Plug>(leap-backward-to)
 nmap <leader>gf <Plug>(leap-cross-window)
 
+" TELESCOPE:
+" Find files using Telescope command-line sugar.
+nnoremap <leader>tf <cmd>Telescope find_files<cr>
+nnoremap <leader>tg <cmd>Telescope live_grep<cr>
+nnoremap <leader>tb <cmd>Telescope buffers<cr>
+nnoremap <leader>th <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
 
 
 " Plugin Helptags:
 helptags ALL
+
+
