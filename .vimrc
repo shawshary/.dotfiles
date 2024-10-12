@@ -133,7 +133,7 @@ set signcolumn=yes
 let g:markdown_fenced_languages = ['bash', 'git', 'c', 'sh']
 
 " hard-code the interpreter path
-let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
+let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3.12'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
