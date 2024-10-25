@@ -104,6 +104,9 @@ export LC_ALL=en_US.UTF-8
 # Select Shanghai timezone
 export TZ=Asia/Shanghai
 
+# X11 Display
+export DISPLAY=192.168.36.1:0.0
+
 # fzf
 export FZF_DEFAULT_COMMAND="fd --type f --hidden"
 export FZF_DEFAULT_OPTS="--height 40% --border --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
@@ -130,6 +133,7 @@ export VIRTUALENVWRAPPER_PYTHON=/home/linuxbrew/.linuxbrew/bin/python3.11
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 source $(which virtualenvwrapper.sh)
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
