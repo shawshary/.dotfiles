@@ -160,7 +160,7 @@ autocmd Filetype tex setlocal expandtab shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype matlab setlocal fo+=cj expandtab
 
 " Set format options, influence how vim format the text.
-autocmd Filetype markdown set formatoptions=tnmM]j tw=108
+autocmd Filetype markdown set formatoptions=tcqwanmM]j tw=78
 
 
 " Remember the position when you leave the buffer.
@@ -910,6 +910,18 @@ require("obsidian").setup(
 )
 EOF
 
+" Mappings for Obsidian
+nnoremap <silent><nowait> ;ot  :ObsidianToday<CR>
+nnoremap <silent><nowait> ;on  :ObsidianNew<CR>
+
+nnoremap <silent><nowait> ;oo  :ObsidianOpen<CR>
+
+nnoremap <silent><nowait> ;oa  :ObsidianTags<CR>
+nnoremap <silent><nowait> ;ol  :ObsidianLinks<CR>
+nnoremap <silent><nowait> ;ob  :ObsidianBackLinks<CR>
+nnoremap <silent><nowait> ;od  :ObsidianDailies<CR>
+nnoremap <silent><nowait> ;oc  :ObsidianTOC<CR>
+nnoremap <silent><nowait> ;os  :ObsidianQuickSwitch<CR>
 
 
 " Plugin Helptags:
