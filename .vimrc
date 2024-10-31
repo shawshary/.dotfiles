@@ -598,10 +598,10 @@ require("obsidian").setup(
         notes_subdir = "notes",
       },
     },
-    -- {
-    --   name = "personal",
-    --   path = "~/vaults/personal",
-    -- },
+    {
+      name = "personal",
+      path = "/mnt/d/Documents/Vaults/personal",
+    },
   },
 
   -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
