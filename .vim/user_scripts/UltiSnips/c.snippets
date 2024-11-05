@@ -129,10 +129,6 @@ ${1:void} ${2:function_name}($3)
 }
 endsnippet
 
-snippet fund "function declaration" b
-${1:void} ${2:function_name}($3);
-endsnippet
-
 global !p
 def split_line(text):
 	import textwrap
@@ -265,4 +261,26 @@ typedef enum {
  $0
 endsnippet
 
+
+snippet fund "Function declaration"
+/**
+ * @fn $2
+ * @brief ${4:${VISUAL:Brief.}}
+`!p 
+snip.rv = ""
+snip >> 2
+
+args = get_args(t[3])
+if args:
+	for arg in args:
+		snip.rv += ' * @param[in]: ' + arg.split(' ')[-1] + ' TODO'
+		if arg != args[-1]:
+			snip.rv += '\n'	
+snip << 2
+`
+ * @return $5
+ */
+${1:void} ${2:func}(${3:args});
+$0
+endsnippet
 # vim:ft=snippets:
