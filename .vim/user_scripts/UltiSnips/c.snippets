@@ -261,7 +261,6 @@ typedef enum {
  $0
 endsnippet
 
-
 snippet fund "Function declaration"
 /**
  * @fn $2
@@ -282,5 +281,13 @@ snip << 2
  */
 ${1:void} ${2:func}(${3:args});
 $0
+endsnippet
+
+snippet cont "Function content"
+  int32_t dwRet = XERROR;
+  $0
+  dwRet = XOK;
+EXIT:
+  return dwRet;
 endsnippet
 # vim:ft=snippets:

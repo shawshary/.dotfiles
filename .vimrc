@@ -81,7 +81,7 @@ set autochdir
 " Maimum width of text tht is being inserted.
 set textwidth=108
 " copy indent from the current line when starting a new line.
-set autoindent
+"set autoindent
 "replace tab with spaces
 set expandtab
 " number of spaces to use for each step of (auto)indent.
@@ -151,9 +151,9 @@ let maplocalleader=" "
 
 " set indent info for different file types.
 autocmd Filetype cpp
-    \ setlocal cindent expandtab cino=g0 shiftwidth=4 tabstop=4 sts=4
+    \ setlocal expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
 autocmd Filetype c
-    \ setlocal cindent expandtab cino=g0 shiftwidth=4 tabstop=4 sts=4
+    \ setlocal expandtab cino=g0 shiftwidth=2 tabstop=2 sts=2
 
 autocmd Filetype sh setlocal expandtab shiftwidth=4 tabstop=4 sts=4
 autocmd Filetype tex setlocal expandtab shiftwidth=2 tabstop=2 sts=2
@@ -356,6 +356,16 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Show hover when provider exists, fallback to vim's builtin behavior.
+function! CocShowDocumentation()
+if CocAction('hasProvider', 'hover')
+  call CocActionAsync('definitionHover')
+else
+  call feedkeys('K', 'in')
+endif
+endfunction
+nnoremap <silent> ;sd :call CocShowDocumentation()<CR>
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location
 " list.
@@ -533,7 +543,7 @@ lua << EOF
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
+      -- { name = 'nvim_lsp' },
       -- { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       { name = 'ultisnips' }, -- For ultisnips users.
@@ -573,8 +583,14 @@ lua << EOF
     matching = { disallow_symbol_nonprefix_matching = false }
   })
 
+  cmp.setup.filetype({ 'markdown', 'help' }, {
+    sources = {
+      { name = 'path' },
+      { name = 'buffer' },
+    }
+  })
   -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
   --   capabilities = capabilities
