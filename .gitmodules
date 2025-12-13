@@ -73,3 +73,6 @@
 [submodule ".vim/pack/plugins-package/opt/nvim-lspconfig"]
 	path = .vim/pack/plugins-package/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
+[submodule ".vim/pack/plugins-package/opt/vim-one"]
+	path = .vim/pack/plugins-package/opt/vim-one
+	url = https://github.com/rakr/vim-one.git
