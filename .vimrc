@@ -236,6 +236,7 @@ endif
 
 " colorscheme
 packadd! iceberg.vim
+packadd! vim-one
 
 " file navigation
 packadd! nerdtree
@@ -295,7 +296,8 @@ packadd! obsidian.nvim
 syntax enable
 set background=dark
 if $TERM == "xterm-256color"
-    colorscheme iceberg
+    colorscheme one
+    let g:airline_theme='one'
 endif
 
 " Make highlights used for highlighting same symbols in the buff at the current
