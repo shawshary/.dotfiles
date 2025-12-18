@@ -296,6 +296,7 @@ packadd! obsidian.nvim
 syntax enable
 set background=dark
 if $TERM == "xterm-256color"
+    set notermguicolors
     colorscheme iceberg
 endif
 
