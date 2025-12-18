@@ -296,8 +296,7 @@ packadd! obsidian.nvim
 syntax enable
 set background=dark
 if $TERM == "xterm-256color"
-    colorscheme one
-    let g:airline_theme='one'
+    colorscheme iceberg
 endif
 
 " Make highlights used for highlighting same symbols in the buff at the current
