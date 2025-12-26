@@ -118,9 +118,12 @@ export HOMEBREW_CORE_GIT_REMOTE='https://mirrors.ustc.edu.cn/homebrew-core.git'
 export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 # proxy
+HOSTNAME=$(hostname)
 #username=
 #password=
-proxy="172.17.32.1:8887"
+if [[ ${HOSTNAME} == "LenovoLaptop" ]]; then
+    proxy="172.23.64.1:8887"
+fi
 export HTTPS_PROXY="http://$proxy"
 export HTTP_PROXY="http://$proxy"
 export https_proxy="http://$proxy"
