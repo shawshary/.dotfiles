@@ -10,7 +10,7 @@
 
 # fd: a simple, fast and user-friendly alternative to find.
 TOOLS=(cmake python nvim tmux pandoc pandoc-crossref lazygit zsh tree node ranger \
-       fzf fd gawk todo-txt xclip ripgrep)
+       fzf fd gawk todo-txt xclip ripgrep nmap)
 
 if [[ $(which brew) ]]; then
   brew update
